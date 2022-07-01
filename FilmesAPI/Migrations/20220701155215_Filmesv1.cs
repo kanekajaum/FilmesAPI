@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using MySql.EntityFrameworkCore.Metadata;
 
 namespace FilmesAPI.Migrations
 {
-    public partial class ConexaoFilmev2 : Migration
+    public partial class Filmesv1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +11,10 @@ namespace FilmesAPI.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Titulo = table.Column<string>(type: "text", nullable: false),
-                    Diretor = table.Column<string>(type: "text", nullable: false),
-                    Genero = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Diretor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Genero = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     Duracao = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
