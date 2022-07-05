@@ -1,4 +1,5 @@
-using FilmesAPI.Data;
+using FilmesApi.Data;
+using FilmesAPI.Data.Dtos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,7 @@ namespace FilmesAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<FilmeContext>(opts =>
+            services.AddDbContext<AppDbContext>(opts =>
             {
                 opts.UseSqlServer(Configuration.GetConnectionString("FilmeConnection"),
                     sqlServerOptionsAction: sqlOptions =>
